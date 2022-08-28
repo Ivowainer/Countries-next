@@ -37,10 +37,11 @@ export interface CountriesAll {
 }
 
 export interface CountriesSmall {
-    name: {},
+    name: Name,
     population: number,
     region: Region,
-    capital: undefined | string[]
+    capital: string[],
+    flags: CoatOfArms
 }
 
 export interface CapitalInfo {

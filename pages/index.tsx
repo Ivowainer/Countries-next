@@ -11,14 +11,12 @@ interface Props {
 
 const Home: NextPage<Props> = ({ countries }) => {
 
-  console.log(countries)
-
   return (
     <>
       <MainLayout page={"Countries | Home"}>
         <div className="px-20 mt-10">
           <SearchBar />
-          <CardContainer />
+          <CardContainer countries={countries}/>
         </div>
       </MainLayout>
     </>
@@ -28,15 +26,15 @@ const Home: NextPage<Props> = ({ countries }) => {
 export const getStaticProps: GetStaticProps = async (ctx) => {
   const { data } = await countriesApi.get('/all')
 
-  const countries = 
-    data.map((country: CountriesAll) => ({
-      name: country.name,
-      population: country.population,
-      region: country.region,
-      capital: country.capital || null
-    }))
+  const countries = data.map((country: CountriesAll) => ({
+    name: country.name,
+    population: country.population,
+    region: country.region,
+    capital: country.capital || null,
+    flags: country.flags
+  }))
 
-  console.log(countries[180].capital === undefined)
+  console.log(countries)
 
   return {
     props: {
