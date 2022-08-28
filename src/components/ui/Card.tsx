@@ -10,7 +10,6 @@ interface Props {
 }
 
 const Card: React.FC<Props> = ({ name, population, region, capital, flags }) => {
-  console.log(flags)
   return (
     <div className="rounded-md bg-white shadow">
         <Image src={flags.svg} width={250} height={150} layout="responsive" alt={`Flag of Country`} className="rounded-tr-md rounded-tl-md"/>

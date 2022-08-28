@@ -59,8 +59,8 @@ export enum Side {
 }
 
 export interface CoatOfArms {
-    png?: string;
-    svg?: string;
+    png: string;
+    svg: string;
 }
 
 export enum Continent {
