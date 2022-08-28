@@ -34,8 +34,6 @@ export const getStaticProps: GetStaticProps = async (ctx) => {
     flags: country.flags
   }))
 
-  console.log(countries)
-
   return {
     props: {
       countries

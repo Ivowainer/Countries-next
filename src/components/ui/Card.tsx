@@ -11,7 +11,7 @@ interface Props {
 
 const Card: React.FC<Props> = ({ name, population, region, capital, flags }) => {
   return (
-    <div className="rounded-md bg-white shadow">
+    <div className="rounded-md bg-white shadow cursor-pointer hover:shadow-2xl transition-shadow duration-700">
         <Image src={flags.svg} width={250} height={150} layout="responsive" alt={`Flag of Country`} className="rounded-tr-md rounded-tl-md"/>
         <div className="px-6 pt-4 pb-10">
             <p className="font-bold text-xl my-3">{name.common}</p>

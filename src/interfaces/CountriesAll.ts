@@ -40,8 +40,20 @@ export interface CountriesSmall {
     name: Name,
     population: number,
     region: Region,
+    subregion: string,
     capital: string[],
     flags: CoatOfArms
+}
+
+export interface Country {
+    name: Name,
+    population: number,
+    region: Region,
+    capital: string[],
+    flags: CoatOfArms,
+    tld: string[],
+    currencies: Currencies,
+    languages: { [key: string]: string }
 }
 
 export interface CapitalInfo {
