@@ -1,13 +1,12 @@
-import { GetStaticPaths, GetStaticProps, NextPage } from "next"
+/* import unidecode from "unidecode"; */
+
+import { GetStaticPaths, GetStaticPropsContext, InferGetStaticPropsType, NextPage } from "next"
 import { countriesApi } from "../../src/helpers/countriesApi"
-import { CountriesAll, Country } from '../../src/interfaces/CountriesAll';
+import { CountriesAll } from '../../src/interfaces/CountriesAll';
 
-interface Props {
-    country: Country[]
-}
+type CountryNameProps = InferGetStaticPropsType<typeof getStaticProps>
 
-const countryName: NextPage<Props> = ({ country }) => {
-    console.log(country)
+const CountryName: NextPage<CountryNameProps> = ({ country }) => {
 
     return (
         <div>
@@ -17,36 +16,34 @@ const countryName: NextPage<Props> = ({ country }) => {
 }
 
 export const getStaticPaths: GetStaticPaths = async (ctx) => {
-    const { data } = await countriesApi.get(`/all`)
+    const { data } = await countriesApi.get<CountriesAll[]>(`/all`)
 
-    const countries = data.map((country: CountriesAll) => country.name?.common )
+    const countries = data.map((country) => country.name?.common )
 
     return {
         paths: countries.map(( name: string ) => ({
-            params: { name: name }
+            params: { name }
         })),
-        fallback: false
+        fallback: "blocking"
     }
 }
 
-export const getStaticProps: GetStaticProps = async ({ params }) => {
-    const { name } = params as { name: string }
+export const getStaticProps = async ({ params }:GetStaticPropsContext) => {
+    const { name } = params!
 
-    const { data } = await countriesApi.get(`/name/${name}`)
+    const { data } = await countriesApi.get<CountriesAll[]>(`/name/${name}`)
 
     const country = {
-        name: data[0].name,
-        population: data[0].population,
-        region: data[0].region,
-        subregion: data[0].subregion,
-        capital: data[0].capital,
-        flags: data[0].flags,
-        tld: data[0].tld,
-        currencies: data[0].currencies,
-        languages: data[0].languages
+        name: data[0].name || null,
+        population: data[0].population || null,
+        region: data[0].region || null,
+        subregion: data[0].subregion || null,
+        capital: data[0].capital || null,
+        flags: data[0].flags || null,
+        tld: data[0].tld || null,
+        currencies: data[0].currencies || null,
+        languages: data[0].languages || null
     }
-
-    console.log(country)
 
     return {
         props: {
@@ -55,4 +52,4 @@ export const getStaticProps: GetStaticProps = async ({ params }) => {
     }
 }
 
-export default countryName
+export default CountryName

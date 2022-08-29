@@ -137,6 +137,11 @@
   "resolved" "https://registry.npmjs.org/@types/scheduler/-/scheduler-0.16.2.tgz"
   "version" "0.16.2"
 
+"@types/unidecode@^0.1.1":
+  "integrity" "sha512-ReYnWajSY+QnZk5dBpSztek+kHUtpHJkf0pSZBx2ZVIxcSBkRLY7m0caPwVKXC6WjE65G2fVU84EpiFbdJVDuQ=="
+  "resolved" "https://registry.npmjs.org/@types/unidecode/-/unidecode-0.1.1.tgz"
+  "version" "0.1.1"
+
 "@typescript-eslint/parser@^5.21.0":
   "integrity" "sha512-XL2TBTSrh3yWAsMYpKseBYTVpvudNf69rPOWXWVBI08My2JVT5jR66eTt4IgQFHA/giiKJW5dUD4x/ZviCKyGg=="
   "resolved" "https://registry.npmjs.org/@typescript-eslint/parser/-/parser-5.35.1.tgz"
@@ -1950,6 +1955,11 @@
     "has-bigints" "^1.0.2"
     "has-symbols" "^1.0.3"
     "which-boxed-primitive" "^1.0.2"
+
+"unidecode@^0.1.8":
+  "integrity" "sha512-SdoZNxCWpN2tXTCrGkPF/0rL2HEq+i2gwRG1ReBvx8/0yTzC3enHfugOf8A9JBShVwwrRIkLX0YcDUGbzjbVCA=="
+  "resolved" "https://registry.npmjs.org/unidecode/-/unidecode-0.1.8.tgz"
+  "version" "0.1.8"
 
 "update-browserslist-db@^1.0.5":
   "integrity" "sha512-dteFFpCyvuDdr9S/ff1ISkKt/9YZxKjI9WlRR99c180GaztJtRa/fn18FdxGVKVsnPY7/a/FDN68mcvUmP4U7Q=="
