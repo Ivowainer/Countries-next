@@ -8,9 +8,11 @@ type CountryNameProps = InferGetStaticPropsType<typeof getStaticProps>
 
 const CountryName: NextPage<CountryNameProps> = ({ country }) => {
 
+    const { name, capital, currencies, flags, languages, population, region, subregion, tld } = country
+
     return (
         <div>
-        
+            <h1>{country.name.common}</h1>
         </div>
     )
 }
@@ -31,7 +33,16 @@ export const getStaticPaths: GetStaticPaths = async (ctx) => {
 export const getStaticProps = async ({ params }:GetStaticPropsContext) => {
     const { name } = params!
 
-    const { data } = await countriesApi.get<CountriesAll[]>(`/name/${name}`)
+    const res = await fetch(`https://restcountries.com/v3.1/name/${name}`)
+
+    if(!res.ok){
+        return {
+            props: {} as never,
+            notFound: true
+        }
+    }
+
+    const data = await res.json() as CountriesAll[]
 
     const country = {
         name: data[0].name || null,
@@ -44,6 +55,8 @@ export const getStaticProps = async ({ params }:GetStaticPropsContext) => {
         currencies: data[0].currencies || null,
         languages: data[0].languages || null
     }
+
+    console.log(country)
 
     return {
         props: {
