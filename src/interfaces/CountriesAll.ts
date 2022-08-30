@@ -8,13 +8,13 @@ export interface CountriesAll {
     independent?: boolean;
     status:       Status;
     unMember:     boolean;
-    currencies?:  Currencies;
+    currencies:  Currencies;
     idd:          Idd;
     capital?:     string[];
     altSpellings: string[];
     region:       Region;
     subregion?:   string;
-    languages?:   { [key: string]: string };
+    languages:   { [key: string]: string };
     translations: { [key: string]: Translation };
     latlng:       number[];
     landlocked:   boolean;
@@ -46,16 +46,16 @@ export interface CountriesSmall {
 }
 
 export interface Country {
-    name: Name | null,
+    name: Name,
     population: number | null,
     region: Region | null,
     subregion: string | null,
     capital: string[] | null,
     flags: CoatOfArms | null,
     tld: string[] | null,
-    currencies: Currencies | null,
+    currencies: Currencies,
     borders: string[] | null,
-    languages: { [key: string]: string } | null,
+    languages: { [key: string]: string },
 }
 
 export interface CapitalInfo {
@@ -86,6 +86,171 @@ export enum Continent {
     Oceania = "Oceania",
     SouthAmerica = "South America",
 }
+
+export type Curren = 
+    "EUR"   
+    "GTQ"   
+    "CLP"   
+    "UYU"   
+    "KGS"   
+    "ZMW"   
+    "NZD"   
+    "GEL"   
+    "TTD"   
+    "KRW"   
+    "USD"   
+    "XOF"   
+    "MKD"   
+    "FJD"   
+    "MGA"   
+    "XCD"   
+    "AUD"   
+    "CRC"   
+    "DZD"   
+    "NIO"   
+    "ZWL"   
+    "RWF"   
+    "TRY"   
+    "TJS"   
+    "JMD"   
+    "GBP"   
+    "SHP"   
+    "AWG"   
+    "PKR"   
+    "BYN"   
+    "SBD"   
+    "SZL"   
+    "ZAR"   
+    "XPF"   
+    "MXN"   
+    "GGP"   
+    "CHF"   
+    "BWP"   
+    "ILS"   
+    "GNF"   
+    "KPW"   
+    "PHP"   
+    "TND"   
+    "XAF"   
+    "NGN"   
+    "JEP"   
+    "EGP"   
+    "JOD"   
+    "KMF"   
+    "LSL"   
+    "IDR"   
+    "CAD"   
+    "AMD"   
+    "FKP"   
+    "PAB"   
+    "LAK"   
+    "AZN"   
+    "KHR"   
+    "CUC"   
+    "CUP"   
+    "STN"   
+    "RSD"   
+    "VND"   
+    "LKR"   
+    "MAD"   
+    "MRU"   
+    "QAR"   
+    "SLL"   
+    "ISK"   
+    "GMD"   
+    "GYD"   
+    "ANG"   
+    "SEK"   
+    "TVD"   
+    "AED"   
+    "VES"   
+    "WST"   
+    "LBP"   
+    "TOP"   
+    "IMP"   
+    "BAM"   
+    "HTG"   
+    "SCR"   
+    "TZS"   
+    "DKK"   
+    "FOK"   
+    "ERN"   
+    "ETB"   
+    "MNT"   
+    "NPR"   
+    "SYP"   
+    "BND"   
+    "SGD"   
+    "SSP"   
+    "IQD"   
+    "ALL"   
+    "UGX"   
+    "BTN"   
+    "INR"   
+    "NAD"   
+    "OMR"   
+    "BDT"   
+    "DJF"   
+    "TWD"   
+    "MUR"   
+    "NOK"   
+    "THB"   
+    "HNL"   
+    "PYG"   
+    "LRD"   
+    "SOS"   
+    "GIP"   
+    "BSD"   
+    "MWK"   
+    "SAR"   
+    "LYD"   
+    "BOB"   
+    "PGK"   
+    "BBD"   
+    "BGN"   
+    "SDG"   
+    "TMT"   
+    "MMK"   
+    "BRL"   
+    "COP"   
+    "IRR"   
+    "MDL"   
+    "MOP"   
+    "CVE"   
+    "JPY"   
+    "BHD"   
+    "CKD"   
+    "MVR"   
+    "DOP"   
+    "CDF"   
+    "YER"   
+    "UAH"   
+    "CNY"   
+    "PEN"   
+    "SRD"   
+    "AFN"   
+    "HUF"   
+    "KWD"   
+    "KYD"   
+    "MYR"   
+    "GHS"   
+    "HRK"   
+    "CZK"   
+    "UZS"   
+    "BIF"   
+    "BZD"   
+    "KES"   
+    "KZT"   
+    "ARS"   
+    "HKD"   
+    "RON"   
+    "KID"   
+    "VUV"   
+    "AOA"   
+    "PLN"   
+    "MZN"   
+    "BMD"   
+    "RUB"
 
 export interface Currencies {
     EUR?: TartuGecko;
@@ -285,7 +450,7 @@ export interface Maps {
 export interface Name {
     common:      string;
     official:    string;
-    nativeName?: { [key: string]: Translation };
+    nativeName: { [key: string]: Translation };
 }
 
 export interface Translation {
