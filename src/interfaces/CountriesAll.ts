@@ -46,14 +46,15 @@ export interface CountriesSmall {
 }
 
 export interface Country {
-    name: Name,
-    population: number,
-    region: Region,
-    capital: string[],
-    flags: CoatOfArms,
-    tld: string[],
-    currencies: Currencies,
-    languages: { [key: string]: string }
+    name: Name | null,
+    population: number | null,
+    region: Region | null,
+    subregion: string | null,
+    capital: string[] | null,
+    flags: CoatOfArms | null,
+    tld: string[] | null,
+    currencies: Currencies | null,
+    languages: { [key: string]: string } | null
 }
 
 export interface CapitalInfo {

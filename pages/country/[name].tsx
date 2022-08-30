@@ -1,19 +1,26 @@
-/* import unidecode from "unidecode"; */
-
 import { GetStaticPaths, GetStaticPropsContext, InferGetStaticPropsType, NextPage } from "next"
+import MainLayout from "../../src/components/layouts/MainLayout";
 import { countriesApi } from "../../src/helpers/countriesApi"
 import { CountriesAll } from '../../src/interfaces/CountriesAll';
+
+import { BsArrowLeftShort } from "react-icons/bs"
+import InfoContainer from "../../src/components/ui/InfoContainer";
 
 type CountryNameProps = InferGetStaticPropsType<typeof getStaticProps>
 
 const CountryName: NextPage<CountryNameProps> = ({ country }) => {
 
-    const { name, capital, currencies, flags, languages, population, region, subregion, tld } = country
-
     return (
-        <div>
-            <h1>{country.name.common}</h1>
-        </div>
+        <MainLayout page={`${country.name.common} | Countries`}>
+            <div className="px-8 py-8 md:px-20 md:py-12">
+                <button 
+                    className="px-12 py-2 rounded bg-white shadow-md hover:shadow-xl transition-shadow duration-700 flex justify-center items-center"
+                >
+                    <BsArrowLeftShort />Back
+                </button>
+                <InfoContainer country={country}/>
+            </div>
+        </MainLayout>
     )
 }
 
@@ -55,8 +62,6 @@ export const getStaticProps = async ({ params }:GetStaticPropsContext) => {
         currencies: data[0].currencies || null,
         languages: data[0].languages || null
     }
-
-    console.log(country)
 
     return {
         props: {

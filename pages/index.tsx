@@ -13,8 +13,8 @@ const Home: NextPage<Props> = ({ countries }) => {
 
   return (
     <>
-      <MainLayout page={"Countries | Home"}>
-        <div className="px-6 md:px-24 mt-10">
+      <MainLayout page={"Home | Countries"}>
+        <div className="px-6 pb-20 md:px-16 mt-10">
           <SearchBar />
           <CardContainer countries={countries}/>
         </div>
