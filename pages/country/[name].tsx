@@ -60,7 +60,8 @@ export const getStaticProps = async ({ params }:GetStaticPropsContext) => {
         flags: data[0].flags || null,
         tld: data[0].tld || null,
         currencies: data[0].currencies || null,
-        languages: data[0].languages || null
+        languages: data[0].languages || null,
+        borders: data[0].borders || null,
     }
 
     return {

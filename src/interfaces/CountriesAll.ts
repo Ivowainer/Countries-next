@@ -54,7 +54,8 @@ export interface Country {
     flags: CoatOfArms | null,
     tld: string[] | null,
     currencies: Currencies | null,
-    languages: { [key: string]: string } | null
+    borders: string[] | null,
+    languages: { [key: string]: string } | null,
 }
 
 export interface CapitalInfo {
