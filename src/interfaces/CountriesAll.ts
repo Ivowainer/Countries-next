@@ -8,7 +8,7 @@ export interface CountriesAll {
     independent?: boolean;
     status:       Status;
     unMember:     boolean;
-    currencies:  Currencies;
+    currencies?:  Currencies;
     idd:          Idd;
     capital?:     string[];
     altSpellings: string[];
@@ -53,7 +53,7 @@ export interface Country {
     capital: string[] | null,
     flags: CoatOfArms | null,
     tld: string[] | null,
-    currencies: Currencies,
+    currencies: Currencies | null,
     borders: string[] | null,
     languages: { [key: string]: string },
 }

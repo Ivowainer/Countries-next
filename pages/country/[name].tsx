@@ -1,7 +1,7 @@
 import { GetStaticPaths, GetStaticPropsContext, InferGetStaticPropsType, NextPage } from "next"
 import MainLayout from "../../src/components/layouts/MainLayout";
 import { countriesApi } from "../../src/helpers/countriesApi"
-import { CountriesAll } from '../../src/interfaces/CountriesAll';
+import { CountriesAll, Curren } from '../../src/interfaces/CountriesAll';
 
 import { BsArrowLeftShort } from "react-icons/bs"
 import InfoContainer from "../../src/components/ui/InfoContainer";
@@ -52,7 +52,7 @@ export const getStaticProps = async ({ params }:GetStaticPropsContext) => {
     const data = await res.json() as CountriesAll[]
 
     const country = {
-        name: data[0].name || null,
+        name: data[0].name,
         population: data[0].population || null,
         region: data[0].region || null,
         subregion: data[0].subregion || null,
@@ -60,7 +60,7 @@ export const getStaticProps = async ({ params }:GetStaticPropsContext) => {
         flags: data[0].flags || null,
         tld: data[0].tld || null,
         currencies: data[0].currencies || null,
-        languages: data[0].languages,
+        languages: data[0].languages || null,
         borders: data[0].borders || null,
     }
 
