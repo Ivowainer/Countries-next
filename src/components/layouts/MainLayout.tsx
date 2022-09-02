@@ -12,7 +12,7 @@ const MainLayout: React.FC<React.PropsWithChildren<Props>> = ({ page, children }
         <title>{page}</title>
       </Head>
 
-      <div className='bg-gray-100 min-h-screen'>
+      <div className='bg-gray-100 dark:bg-gray-900 min-h-screen'>
         <Nav />
 
         {children}

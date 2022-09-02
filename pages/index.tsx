@@ -1,4 +1,5 @@
 import type { GetStaticProps, NextPage } from 'next'
+import { useState } from 'react'
 import MainLayout from '../src/components/layouts/MainLayout'
 import CardContainer from '../src/components/ui/CardContainer'
 import SearchBar from '../src/components/ui/SearchBar'
@@ -11,12 +12,14 @@ interface Props {
 
 const Home: NextPage<Props> = ({ countries }) => {
 
+  const [searchContent, setSearchContent] = useState<string>('')
+
   return (
     <>
       <MainLayout page={"Home | Countries"}>
         <div className="px-6 pb-20 md:px-16 mt-10">
-          <SearchBar />
-          <CardContainer countries={countries}/>
+          <SearchBar setSearchContent={setSearchContent} searchContent={searchContent}/>
+          <CardContainer searchContent={searchContent} countries={countries}/>
         </div>
       </MainLayout>
     </>

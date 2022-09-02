@@ -13,7 +13,7 @@ interface Props {
 const Card: React.FC<Props> = ({ name, population, region, capital, flags }) => {
   return (
     <Link href={`/country/${name.common}`}>
-      <div className="rounded-md bg-white shadow cursor-pointer hover:shadow-2xl transition-shadow duration-700">
+      <div className="rounded-md text-black dark:text-gray-300 dark:bg-slate-800 bg-white shadow cursor-pointer hover:shadow-2xl transition-shadow duration-700">
         <Image src={flags.svg} width={300} height={200} layout="responsive" alt={`Flag of Country`} className="rounded-tr-md rounded-tl-md"/>
         <div className="px-6 pt-4 pb-10">
           <p className="font-bold text-xl my-3">{name.common}</p>

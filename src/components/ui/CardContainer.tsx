@@ -1,15 +1,22 @@
 import { CountriesSmall } from '../../interfaces/CountriesAll'
 import Card from './Card'
 
-interface Props {
-  countries: CountriesSmall[]
+interface CardContainerProps {
+  countries: CountriesSmall[];
+  searchContent: string;
 }
 
-const CardContainer: React.FC<Props> = ({ countries }) => {
+const CardContainer: React.FC<CardContainerProps> = ({ countries, searchContent }) => {
   return (
     <div>
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 mt-10 gap-x-20 gap-y-10">
-            {countries.map(country => (
+            {countries.filter((val) => {
+              if(searchContent === ''){
+                return val
+              } else if (val.name.official.toLowerCase().includes(searchContent.toLowerCase())) {
+                return val
+              }
+            }).map(country => (
               <Card flags={country.flags} capital={country.capital} name={country.name} population={country.population} region={country.region} key={country.name.official}/>
             ))}
         </div>
