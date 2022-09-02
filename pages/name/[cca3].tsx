@@ -27,20 +27,20 @@ const CountryName: NextPage<CountryNameProps> = ({ country }) => {
 export const getStaticPaths: GetStaticPaths = async (ctx) => {
     const { data } = await countriesApi.get<CountriesAll[]>(`/all`)
 
-    const countries = data.map((country) => country.cca2 )
+    const countries = data.map((country) => country.cca3 )
 
     return {
-        paths: countries.map(( cca2: string ) => ({
-            params: { cca2 }
+        paths: countries.map(( cca3: string ) => ({
+            params: { cca3 }
         })),
         fallback: "blocking"
     }
 }
 
 export const getStaticProps = async ({ params }:GetStaticPropsContext) => {
-    const { cca2 } = params!
+    const { cca3 } = params!
 
-    const res = await fetch(`https://restcountries.com/v3.1/name/${cca2}`)
+    const res = await fetch(`https://restcountries.com/v3.1/name/${cca3}`)
 
     if(!res.ok){
         return {
