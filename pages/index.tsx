@@ -1,5 +1,5 @@
 import type { GetStaticProps, NextPage } from 'next'
-import { useState } from 'react'
+import { useEffect, useState } from 'react'
 import MainLayout from '../src/components/layouts/MainLayout'
 import CardContainer from '../src/components/ui/CardContainer'
 import SearchBar from '../src/components/ui/SearchBar'

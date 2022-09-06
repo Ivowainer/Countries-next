@@ -31,7 +31,7 @@ const InfoCountry: React.FC<InfoCountryProps> = ({ country }) => {
                     {country.borders?.map(border => (
                         <>
                             <Link href={`/name/${border}`} key={border}>
-                                <a className="border text-sm shadow bg-white px-6 py-1 rounded" key={border}>{border}</a>
+                                <a className="border dark:border-slate-800 text-sm shadow dark:bg-slate-800 bg-white px-6 py-1 rounded" key={border}>{border}</a>
                             </Link>
                         </>
                     )) || "Undefined"}

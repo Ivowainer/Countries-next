@@ -1,17 +1,15 @@
 import '../src/styles/globals.css'
 import type { AppProps } from 'next/app'
 import { useEffect } from 'react';
+import { ThemeProvider } from 'next-themes';
 
 function MyApp({ Component, pageProps }: AppProps) {
-  useEffect(() => {
-    /* if (localStorage.theme === 'dark' || (!('theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
-      document.documentElement.classList.add('dark')
-    } else {
-      document.documentElement.classList.remove('dark')
-    } */
-  }, [])
 
-  return <Component {...pageProps} />
+  return (
+    <ThemeProvider enableSystem={true} attribute="class"> 
+      <Component {...pageProps} />
+    </ThemeProvider>
+  )
 }
 
 export default MyApp
