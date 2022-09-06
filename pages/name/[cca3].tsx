@@ -14,7 +14,7 @@ const CountryName: NextPage<CountryNameProps> = ({ country }) => {
         <MainLayout page={`${country?.name?.common} | Countries`}>
             <div className="px-8 py-8 md:px-20 md:py-12">
                 <button 
-                    className="px-12 py-2 rounded bg-white shadow-md hover:shadow-xl transition-shadow duration-700 flex justify-center items-center"
+                    className="px-12 py-2 rounded dark:bg-slate-800 bg-white shadow-md hover:shadow-xl transition-shadow duration-700 flex justify-center items-center"
                 >
                     <BsArrowLeftShort />Back
                 </button>
