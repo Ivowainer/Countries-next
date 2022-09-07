@@ -4,7 +4,7 @@ import DarkModeButton from './DarkModeButton'
 
 const Nav: React.FC = () => {
   return (
-    <nav className='px-4 md:px-20 py-4 dark:bg-slate-800 bg-white shadow flex flex-col md:flex-row justify-between items-center'>
+    <nav className='px-4 md:px-20 py-4 dark:bg-gray-800 bg-white shadow flex flex-col md:flex-row justify-between items-center'>
       <Link href="/">
         <a className="font-bold text-2xl text-black dark:text-white">Where in the world?</a>
       </Link>
